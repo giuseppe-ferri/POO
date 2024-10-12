@@ -1,5 +1,5 @@
 package docManage;
 
-public class Login {
-
+public class Login extends CriarConta{
+	
 }

@@ -1,5 +1,5 @@
 package docManage;
 
-public class Paciente {
-
+public class Paciente extends Pessoa{
+	
 }
