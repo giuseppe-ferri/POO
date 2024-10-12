@@ -1,6 +1,7 @@
 package docManage;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.Period;
 
 public class Pessoa {
 	private static int nextPid = 0;
@@ -13,18 +14,16 @@ public class Pessoa {
 	private String email;
 	private String telefone;
 	private String cpf;
-	private String tipoInfo;
 	private String txt;
 	
-//	LocalDate dataNascimento = LocalDate.of(ano, mes, dia);
-	public Pessoa(int pid, String name, int dia, int mes, int ano, LocalDate dataNascimento,
+	public Pessoa(String name, int dia, int mes, int ano,
 			String email, String telefone, String cpf) {
 		this.pid = nextPid++;
 		this.nome = name;
 		this.dia = dia;
 		this.mes = mes;
 		this.ano = ano;
-		this.dataNascimento = dataNascimento;
+		this.dataNascimento = LocalDate.of(ano, mes, dia);
 		this.email = email;
 		this.telefone = telefone;
 		this.cpf = cpf;
@@ -116,10 +115,14 @@ public class Pessoa {
     	return this.dataNascimento.format(formatador);
     }
     
+    private int calcularIdade() {
+        LocalDate hoje = LocalDate.now();
+        return Period.between(dataNascimento, hoje).getYears();
+    }
+    
     public String info() {
-    	tipoInfo = "INFORMAÇÕES PESSOAIS";
-    	txt = String.format("%s\n\nID: %s\nNome: %s\nData de Nascimento: %s\nEmail: %s"
-    			+ "\nTelefone: %s\nCPF: %s", tipoInfo, pid ,nome, dataNascimentoFormat(), email, telefone, cpf );
+    	txt = String.format("ID: %s\nNome: %s\nData de Nascimento: %s\nIdade: %d\nEmail: %s"
+    			+ "\nTelefone: %s\nCPF: %s", pid ,nome, dataNascimentoFormat(), calcularIdade(), email, telefone, cpf );
     	return txt;
     }
 }
