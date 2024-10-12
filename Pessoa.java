@@ -1,9 +1,11 @@
 package docManage;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.Period;
 
-public class Pessoa {
+public abstract class Pessoa {
+	
 	private static int nextPid = 0;
 	private int pid;
 	private String nome;

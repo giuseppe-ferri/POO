@@ -1,6 +1,7 @@
 package docManage;
 
 public class Paciente extends Pessoa {
+	
 	private String txt;
     private String diagnostico;
     private String tratamento;
@@ -12,6 +13,7 @@ public class Paciente extends Pessoa {
         this.tratamento = tratamento;
     }
     
+    // Overload
     public Paciente() {}
 
     // Getters e Setters
