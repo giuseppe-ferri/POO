@@ -11,7 +11,7 @@ public class Menu implements Crud {
 
     public Menu() {
         this.pacientes = new ArrayList<>();
-        initPacientes(); // Initialize with sample patients
+        initPacientes();
     }
 
     private void initPacientes() {
@@ -30,8 +30,8 @@ public class Menu implements Crud {
     public void menuInterface() {
         do {
             System.out.println("Selecione uma opção:");
-            System.out.println("1. Adicionar novo paciente");
-            System.out.println("2. Listar todos os pacientes");
+            System.out.println("1. Listar todos os pacientes");
+            System.out.println("2. Adicionar novo paciente");
             System.out.println("3. Atualizar os dados do paciente");
             System.out.println("4. Remover paciente");
             System.out.print("5. Sair\nOpção >> ");
@@ -92,7 +92,7 @@ public class Menu implements Crud {
     public void atualizar() {
         System.out.print("Digite o ID do paciente que deseja atualizar: ");
         int id = sc.nextInt();
-        sc.nextLine(); // Consume newline
+        sc.nextLine();
         Paciente pacienteEncontrado = null;
 
         for (Paciente paciente : pacientes) {
@@ -138,18 +138,17 @@ public class Menu implements Crud {
     }
 
     private void sair() {
-        System.out.println("Saindo...");
-        sc.close();
         System.exit(0);
+        sc.close();
     }
 
     private void option(String option) {
         switch (option) {
-            case "1":
-                adicionar();
-                break;
+	        case "1":
+	        	listar();
+	        	break;
             case "2":
-                listar();
+                adicionar();
                 break;
             case "3":
                 atualizar();
@@ -158,6 +157,7 @@ public class Menu implements Crud {
                 remover();
                 break;
             case "5":
+            	System.out.println("Saindo...");
                 sair();
                 break;
             default:
