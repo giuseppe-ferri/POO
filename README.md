@@ -5,8 +5,8 @@
 - **João Vitor da Costa** (RA: 4362)
 
 ### LINKS
-- **GITHUB:** https://github.com/giuseppe-ferri/POO
-- **DIAGRAMA UML:** https://lucid.app/lucidchart/71ec952e-d0d6-4e4b-b469-62b33ff2c64e/edit?invitationId=inv_e7306c8d-0eff-4439-951b-81ca89fecbcf&page=0_0#
+- **GITHUB:** [GITHUB](https://github.com/giuseppe-ferri/POO)
+- **DIAGRAMA UML:** [UML](https://lucid.app/lucidchart/71ec952e-d0d6-4e4b-b469-62b33ff2c64e/edit?view_items=WYFho2xMZM.z&invitationId=inv_e7306c8d-0eff-4439-951b-81ca89fecbcf)
 
 ### Tela Inicial do Programa
 
