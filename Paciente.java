@@ -35,7 +35,7 @@ public class Paciente extends Pessoa {
 
     @Override
     public String info() {
-    	txt = "INFORMAÇÕES DO PACIENTE\n\n";
+    	txt = "INFORMAÇÕES DO PACIENTE\n";
         txt += super.info();
         txt += String.format("\nDiagnóstico: %s\nTratamento: %s", diagnostico, tratamento);
 

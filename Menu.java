@@ -29,7 +29,7 @@ public class Menu implements Crud {
 
     public void menuInterface() {
         do {
-            System.out.println("Selecione uma opção:");
+            System.out.println("\nSelecione uma opção:");
             System.out.println("1. Listar todos os pacientes");
             System.out.println("2. Adicionar novo paciente");
             System.out.println("3. Atualizar os dados do paciente");
@@ -74,22 +74,23 @@ public class Menu implements Crud {
 
         Paciente novoPaciente = new Paciente(nome, dia, mes, ano, email, telefone, cpf, diagnostico, tratamento);
         pacientes.add(novoPaciente);
-        System.out.println("Paciente adicionado com sucesso!");
+        System.out.println("Paciente adicionado com sucesso!\n");
     }
 
     public void listar() {
         if (pacientes.isEmpty()) {
-            System.out.println("Nenhum paciente cadastrado.");
+            System.out.println("Nenhum paciente cadastrado.\n");
         } else {
-            System.out.println("LISTA DE PACIENTES\n");
+            System.out.println("LISTA DE PACIENTES");
             
             for (Paciente paciente : pacientes) {
         		System.out.printf("%d - %s\n", paciente.getPID(), paciente.getName());
         	}
             
-            System.out.println("Insira o ID do paciente para visualizar suas informações: ");
+            System.out.print("Insira o ID do paciente para visualizar suas informações: ");
             int id = sc.nextInt();
             sc.nextLine();
+            System.out.println();
             Paciente pacienteEncontrado = null;
             
             for (Paciente paciente : pacientes) {
@@ -98,7 +99,8 @@ public class Menu implements Crud {
                     break;
                 }
             }
-            pacienteEncontrado.info();
+            System.out.println(pacienteEncontrado.info());
+            System.out.println();
         }
     }
 
@@ -109,6 +111,7 @@ public class Menu implements Crud {
         System.out.print("Digite o ID do paciente que deseja atualizar: ");
         int id = sc.nextInt();
         sc.nextLine();
+        System.out.println();
         Paciente pacienteEncontrado = null;
 
         for (Paciente paciente : pacientes) {
@@ -119,16 +122,16 @@ public class Menu implements Crud {
         }
 
         if (pacienteEncontrado != null) {
-            System.out.println("Atualizando informações para: " + pacienteEncontrado.getName());
+            System.out.println("\nAtualizando informações para: " + pacienteEncontrado.getName());
             System.out.print("Digite o novo diagnóstico: ");
             String novoDiagnostico = sc.nextLine();
             System.out.print("Digite o novo tratamento: ");
             String novoTratamento = sc.nextLine();
             pacienteEncontrado.setDiagnostico(novoDiagnostico);
             pacienteEncontrado.setTratamento(novoTratamento);
-            System.out.println("Informações atualizadas com sucesso!");
+            System.out.println("Informações atualizadas com sucesso!\n");
         } else {
-            System.out.println("Paciente não encontrado.");
+            System.out.println("Paciente não encontrado.\n");
         }
     }
 
@@ -139,6 +142,7 @@ public class Menu implements Crud {
         System.out.print("Digite o ID do paciente que deseja remover: ");
         int id = sc.nextInt();
         sc.nextLine();
+        System.out.println();
         Paciente pacienteParaRemover = null;
 
         for (Paciente paciente : pacientes) {
@@ -150,9 +154,9 @@ public class Menu implements Crud {
 
         if (pacienteParaRemover != null) {
             pacientes.remove(pacienteParaRemover);
-            System.out.println("Paciente removido com sucesso!");
+            System.out.println("Paciente removido com sucesso!\n");
         } else {
-            System.out.println("Paciente não encontrado.");
+            System.out.println("Paciente não encontrado.\n");
         }
     }
 
@@ -161,8 +165,8 @@ public class Menu implements Crud {
         sc.close();
     }
 
-    private void option(String option) {
-        switch (option) {
+    private void option(String UserOption) {
+        switch (userOption) {
 	        case "1":
 	        	listar();
 	        	break;
@@ -180,7 +184,7 @@ public class Menu implements Crud {
                 sair();
                 break;
             default:
-                System.out.println("Opção inválida. Tente novamente.");
+                System.out.println("Opção inválida. Tente novamente.\n");
                 break;
         }
     }

@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 
-public class CadastroMedico extends Menu {
+public final class CadastroMedico extends Menu {
     private Scanner sc = new Scanner(System.in);
     private List<String> crmsCadastrados;
     private List<String> senhasCadastradas;
@@ -24,8 +24,8 @@ public class CadastroMedico extends Menu {
         senhasCadastradas.add("admin");
     }
 
-    private void option(String option) {
-        switch (option) {
+    private void option(String UserOption) {
+        switch (userOption) {
             case "1":
                 entrarNaConta();
                 break;
