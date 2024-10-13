@@ -82,14 +82,30 @@ public class Menu implements Crud {
             System.out.println("Nenhum paciente cadastrado.");
         } else {
             System.out.println("LISTA DE PACIENTES\n");
+            
             for (Paciente paciente : pacientes) {
-                System.out.println(paciente.info());
-                System.out.println();
+        		System.out.printf("%d - %s\n", paciente.getPID(), paciente.getName());
+        	}
+            
+            System.out.println("Insira o ID do paciente para visualizar suas informações: ");
+            int id = sc.nextInt();
+            sc.nextLine();
+            Paciente pacienteEncontrado = null;
+            
+            for (Paciente paciente : pacientes) {
+                if (paciente.getPID() == id) {
+                    pacienteEncontrado = paciente;
+                    break;
+                }
             }
+            pacienteEncontrado.info();
         }
     }
 
     public void atualizar() {
+    	for (Paciente paciente : pacientes) {
+    		System.out.printf("%d - %s\n", paciente.getPID(), paciente.getName());
+    	}
         System.out.print("Digite o ID do paciente que deseja atualizar: ");
         int id = sc.nextInt();
         sc.nextLine();
@@ -117,6 +133,9 @@ public class Menu implements Crud {
     }
 
     public void remover() {
+    	for (Paciente paciente : pacientes) {
+    		System.out.printf("%d - %s\n", paciente.getPID(), paciente.getName());
+    	}
         System.out.print("Digite o ID do paciente que deseja remover: ");
         int id = sc.nextInt();
         sc.nextLine();

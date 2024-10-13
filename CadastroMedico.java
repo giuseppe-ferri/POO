@@ -16,6 +16,12 @@ public class CadastroMedico extends Menu {
     public CadastroMedico() {
         crmsCadastrados = new ArrayList<>();
         senhasCadastradas = new ArrayList<>();
+        initContaAdmin();
+    }
+    
+    private void initContaAdmin() {
+    	crmsCadastrados.add("admin");
+        senhasCadastradas.add("admin");
     }
 
     private void option(String option) {
@@ -68,7 +74,7 @@ public class CadastroMedico extends Menu {
             String confirmarSenha = sc.nextLine();
 
             if (senha.equals(confirmarSenha)) {
-                System.out.println("A senha é válida.");
+                System.out.println("Conta criada com sucesso!");
                 crmsCadastrados.add(crm);
                 senhasCadastradas.add(senha);
                 break;
